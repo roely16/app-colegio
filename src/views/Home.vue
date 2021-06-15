@@ -5,9 +5,7 @@
 			<Sidebar></Sidebar>
 
 		<v-container fluid>
-			<v-main>
 				<router-view></router-view>
-			</v-main>
 		</v-container>
 
 		</v-app>

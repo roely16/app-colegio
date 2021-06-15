@@ -5,6 +5,8 @@ Vue.use(Vuex)
 
 import login from '@/store/login/index'
 import home from '@/store/home/index'
+import roles from '@/store/roles/index'
+import usuarios from '@/store/usuarios/index'
 
 export default new Vuex.Store({
   // state: {
@@ -15,7 +17,8 @@ export default new Vuex.Store({
   // },
   modules: {
     login: login,
-    home: home
-
+    home: home,
+    roles: roles,
+    usuarios: usuarios
   }
 })
