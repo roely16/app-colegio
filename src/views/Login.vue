@@ -4,13 +4,18 @@
         <v-container fluid class="login">
 
             <v-row align="center" style="height: 100vh">
-                <v-col>
+                <v-col cols="6">
 
                     <Header></Header>
 
                     <Form></Form>
 
                     <Footer></Footer>
+
+                </v-col>
+                <v-col class="pt-0 mt-0 pb-0 mb-0" cols="6">
+
+                    <SideImage></SideImage>
 
                 </v-col>
             </v-row>
@@ -24,8 +29,8 @@
 
     import Header from '@/components/Login/Header'
     import Form from '@/components/Login/Form'
-
     import Footer from '@/components/Login/Footer'
+    import SideImage from '@/components/Login/Image'
 
     export default {
         data: () => ({
@@ -34,7 +39,8 @@
         components: {
             Header,
             Form,
-            Footer
+            Footer,
+            SideImage
         },
         computed: {
             dataLogin(){

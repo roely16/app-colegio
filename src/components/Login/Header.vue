@@ -1,9 +1,9 @@
 <template>
     <div>
 
-        <v-row>
+        <v-row class="mb-4">
             <v-col class="text-center">
-                <h1>Login</h1>
+                <h2>Inicio de Sesión</h2>
             </v-col>
         </v-row>
 

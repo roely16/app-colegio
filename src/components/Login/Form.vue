@@ -1,62 +1,70 @@
 <template>
     <div>
         <v-row justify="center">
-            <v-col cols="6">
-                <v-card class="pt-10 pb-10 pr-10 pl-10" min-height="300" >
-                    <v-card-text>
-                        <v-form @submit.prevent="doLogin()" ref="form" v-model="valid">
+            <v-col cols="8">
 
-                            <v-row>
-                                <v-col>
-                                    <v-text-field 
-                                        v-model="login.user"  
-                                        prepend-inner-icon="mdi-account" 
-                                        autocomplete="off" 
-                                        label="Usuario" 
-                                        outlined
-                                        clearable
-                                        :rules="[v => !!v]"
-                                        hide-details
-                                    ></v-text-field>
-                                </v-col>
-                            </v-row>
-                            <v-row>
-                                <v-col>
-                                    <v-text-field 
-                                        v-model="login.pass"
-                                        autocomplete="off" 
-                                        prepend-inner-icon="mdi-lock" 
-                                        label="Contraseña" 
-                                        outlined
-                                        clearable
-                                        type="password"
-                                        :rules="[v => !!v]"
-                                    ></v-text-field>
-                                </v-col>
-                            </v-row>
-                            
-                            <v-row>
-                                <v-col>
-                                    <v-alert type="error" dense dismissible>
-                                        {{ messageError }}
-                                    </v-alert>
-                                </v-col>
-                            </v-row>
+                <v-form @submit.prevent="doLogin()" ref="form" v-model="valid">
 
-                            <v-row>
-                                <v-col cols="12" class="text-center">
-                                    <v-btn type="submit" large color="primary">
-                                        Ingresar 
-                                        <v-icon>
-                                            mdi-login
-                                        </v-icon>
-                                    </v-btn>
-                                </v-col>
-                            </v-row>
-                             
-                        </v-form>
-                    </v-card-text>
-                </v-card>
+                    <v-row>
+                        <v-col>
+                            <v-text-field 
+                                v-model="login.user"  
+                                prepend-inner-icon="mdi-account" 
+                                autocomplete="off" 
+                                label="Usuario" 
+                                outlined
+                                clearable
+                                :rules="[v => !!v]"
+                                hide-details
+                            ></v-text-field>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col>
+                            <v-text-field 
+                                v-model="login.pass"
+                                autocomplete="off" 
+                                prepend-inner-icon="mdi-lock" 
+                                label="Contraseña" 
+                                outlined
+                                clearable
+                                type="password"
+                                :rules="[v => !!v]"
+                                hide-details
+                            ></v-text-field>
+                        </v-col>
+                    </v-row>
+                    
+                    <v-row v-if="messageError">
+                        <v-col>
+                            <v-alert type="error" dense dismissible>
+                                {{ messageError }}
+                            </v-alert>
+                        </v-col>
+                    </v-row>
+
+                    <v-row align="center" class="mb-2 mt-0">
+                        <v-col>
+                            <v-checkbox hide-details label="Mantenerse conectado" value="value"></v-checkbox>
+                        </v-col>
+                        <v-col align="end">
+                            <a href="">¿Olvido su contraseña?</a>
+                        </v-col>
+                    </v-row>
+
+                    <v-row>
+                        <v-col cols="12" class="text-center">
+                            <v-btn type="submit" large color="primary">
+                                Ingresar 
+                                <v-icon>
+                                    mdi-login
+                                </v-icon>
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                        
+                </v-form>
+                    
             </v-col>
         </v-row>
     </div>
