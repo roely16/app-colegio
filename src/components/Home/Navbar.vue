@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <v-app-bar app color="teal darken-1" dark >
+        <v-app-bar elevation="1" app color="white">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
                 <v-toolbar-title>
                     <v-list-item-content>

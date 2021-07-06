@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<v-app>
-			<Navbar></Navbar>
+			<!-- <Navbar></Navbar> -->
 			<Sidebar></Sidebar>
 
-		<v-container fluid>
-				<router-view></router-view>
+		<v-container class="home-bk ml-0 pl-0 pr-0 mr-0 pt-0" fluid>
+			<router-view></router-view>
 		</v-container>
 
 		</v-app>
@@ -15,15 +15,24 @@
 <script>
 	import Sidebar from '@/components/Home/Sidebar'
 
-	import Navbar from '@/components/Home/Navbar'
+	// import Navbar from '@/components/Home/Navbar'
 
 	export default {
 		name: 'Home',
 
 		components: {
 			Sidebar,
-			Navbar
+			// Navbar
 		},
 	}
 
 </script>
+
+<style>
+
+	.home-bk{
+		background-color: #f5f5f5;
+		flex: 1 1 auto
+	}
+
+</style>
