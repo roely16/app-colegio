@@ -125,6 +125,46 @@ const actions = {
     },
     subirArchivos(){
         
+    },
+    eliminarAlumno(state, payload){
+
+        console.log(payload.id)
+
+        Swal.fire({
+            title: '¿Está seguro?',
+            text: "Una vez eliminado no se podrá recuperar!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#F44336',
+            cancelButtonColor: '#616161',
+            confirmButtonText: 'SI, ELIMINAR!',
+            cancelButtonText: 'CANCELAR'
+          }).then((result) => {
+
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+            
+        })
+
+    },
+    detalleAlumno(state, payload){
+
+        const data = {
+            persona_id: payload.id
+        }
+
+        axios.post(
+            process.env.VUE_APP_API_URL + 'detalle_alumno',
+            data
+        ).then((response) => {
+            console.log(response.data)
+        })
+
     }
 }
 

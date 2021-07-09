@@ -4,9 +4,15 @@
         <Filtro></Filtro>
 
         <v-data-table hide-default-footer :items="items" :headers="headers" @page-count="pageCount = $event" :items-per-page="10" :page.sync="page">
-			<template v-slot:[`item.acciones`]="{}">
+			<template v-slot:[`item.acciones`]="{item}">
 				
-				<Acciones></Acciones>
+				<Acciones :item="item"></Acciones>
+			
+			</template>
+
+			<template v-slot:[`item.estado`]="{item}">
+				
+				<v-chip label>{{ item.estado }}</v-chip>
 			
 			</template>
         </v-data-table>

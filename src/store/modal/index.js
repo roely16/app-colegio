@@ -2,7 +2,10 @@ const namespaced = true
 
 const state = {
     show: false,
-    persistent: false
+    persistent: false,
+    title: null,
+    width: 500,
+    content: null
 }
 
 const mutations = {
@@ -11,6 +14,15 @@ const mutations = {
     },
     setPersistent(state, payload){
         state.persistent = payload
+    },
+    setTitle(state, payload){
+        state.title = payload
+    },
+    setWidth(state, payload){
+        state.width = payload
+    },
+    setContent(state, payload){
+        state.content = payload
     }
 }
 
