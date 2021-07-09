@@ -4,14 +4,18 @@
             <template v-slot:default>
                 <v-card>
                     <v-toolbar color="primary" dark>
-                        <v-btn :disabled="persistent" icon dark @click="setShow(false)">
+                        <v-btn :disabled="persistent" icon dark @click="() => {
+                            setShow(false)
+                            setContent(null)    
+                        }">
                             <v-icon>mdi-close</v-icon>
                         </v-btn>
                         <v-toolbar-title>{{ title }}</v-toolbar-title>
                         <v-spacer></v-spacer>
                     </v-toolbar>
-                    
-                    <slot name="form"></slot>
+
+                    <component v-bind:is="content"></component>
+
                 </v-card>
             </template>
       </v-dialog>
@@ -19,18 +23,12 @@
 </template>
 
 <script>
-    import { mapMutations } from 'vuex'
+    import { mapMutations, mapState } from 'vuex'
 
     export default {
-        props: {
-            title: {
-                type: String,
-                default: null
-            },
-            width: {
-                type: Number,
-                default: 600
-            }
+        components: {
+            'FormRegistro': () => import('./Alumnos/FormRegistro.vue'),
+            'FormAlumno': () => import('./Alumnos/FormAlumno.vue')
         },
         data(){
             return{
@@ -53,13 +51,25 @@
                 set(val){
                     this.setPersistent(val)
                 }
-            }
+            },
+            componentFile(){
+
+                return () => import(`./${this.content}.vue`);
+
+            },
+            ...mapState('modal', [
+                'width',
+                'title',
+                'content'
+            ])
         },
         methods: {
             ...mapMutations('modal', [
                 'setShow',
-                'setPersistent'
-            ])
+                'setPersistent',
+                'loadForm',
+                'setContent'
+            ]),
         }
     }
 </script>
