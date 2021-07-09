@@ -29,6 +29,15 @@
 				fab
 				dark
 				x-small
+				color="info"
+				@click="mostrarProceso()"
+			>
+				<v-icon>mdi-account-arrow-right</v-icon>
+			</v-btn>
+			<v-btn
+				fab
+				dark
+				x-small
 				color="green"
 				@click="mostrarEditar()"
 			>
@@ -63,13 +72,17 @@
 
 			...mapActions('alumnos', [
 				'eliminarAlumno',
-				'detalleAlumno'
+				'detalleAlumno',
+				'estadosAlumno'
 			]),
 			...mapMutations('modal', [
 				'setShow',
 				'setTitle',
 				'setWidth',
-				'setContent'
+				'setContent',
+			]),
+			...mapMutations('alumnos', [
+				'setAlumno'
 			]),
 			mostrarEliminar(){
 
@@ -82,7 +95,18 @@
 
 				this.setTitle('Editar alumno')
 				this.setWidth(800)
-				this.setContent('FormAlumno')
+				this.setContent('FormRegistro')
+				this.setShow(true)
+
+			},
+			mostrarProceso(){
+
+				this.setAlumno(this.item)
+				this.estadosAlumno(this.item)
+
+				this.setTitle('Proceso de Inscripción')
+				this.setWidth(500)
+				this.setContent('FormProceso')
 				this.setShow(true)
 
 			}

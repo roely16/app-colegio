@@ -19,7 +19,8 @@ const state = {
     pageCount: null,
     search: null,
     toggle: 0,
-    saving: false
+    saving: false,
+    estados_alumno: []
 }
 
 const mutations = {
@@ -68,6 +69,9 @@ const mutations = {
     },
     setSaving(state, payload){
         state.saving = payload
+    },
+    setEstadosAlumno(state, payload){
+        state.estados_alumno = payload
     }
 }
 
@@ -163,6 +167,45 @@ const actions = {
             data
         ).then((response) => {
             console.log(response.data)
+        })
+
+    },
+    estadosAlumno({commit}, payload){
+
+        const data = {
+            gestion_id: payload.gestion,
+            persona_id: payload.id
+        }
+
+        axios.post(
+            process.env.VUE_APP_API_URL + 'estados_alumno',
+            data
+        ).then((response) => {
+
+            commit('setEstadosAlumno', response.data)
+
+        })
+
+    },
+    actualizarGestion({state, dispatch}, payload){
+
+        const data = {
+            estado_id: payload,
+            gestion_id: state.alumno.gestion,
+            persona_id: state.alumno.id
+        }
+
+        axios.post(
+            process.env.VUE_APP_API_URL + 'actualizar_gestion',
+            data
+        ).then((response) => {
+
+            Swal.fire(response.data.message)
+            .then(() => {
+
+                dispatch('obtenerAlumnos')
+
+            })
         })
 
     }

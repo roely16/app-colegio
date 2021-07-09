@@ -28,7 +28,8 @@
     export default {
         components: {
             'FormRegistro': () => import('./Alumnos/FormRegistro.vue'),
-            'FormAlumno': () => import('./Alumnos/FormAlumno.vue')
+            'FormAlumno': () => import('./Alumnos/FormAlumno.vue'),
+            'FormProceso': () => import('./Alumnos/FormProceso.vue')
         },
         data(){
             return{
