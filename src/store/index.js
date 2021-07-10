@@ -9,6 +9,7 @@ import roles from '@/store/roles/index'
 import usuarios from '@/store/usuarios/index'
 import alumnos from '@/store/alumnos/index'
 import modal from '@/store/modal/index'
+import gestion from '@/store/gestion/index'
 
 export default new Vuex.Store({
 	modules: {
@@ -17,6 +18,7 @@ export default new Vuex.Store({
 		roles: roles,
 		usuarios: usuarios,
 		alumnos: alumnos,
-		modal: modal
+		modal: modal,
+		gestion: gestion
 	}
 })

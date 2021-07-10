@@ -5,6 +5,7 @@ import Home from '../views/Home.vue'
 import Alumnos from '../views/Alumnos.vue'
 import Permisos from '../views/Permisos'
 import Inscripcion from '../views/Inscripcion.vue'
+import DetalleGestion from '../views/DetalleGestion'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,11 @@ const routes = [
 		path: '/inscripcion',
 		name: 'inscripcion',
 		component: Inscripcion  
+	},
+	{
+		path: '/detalle_gestion',
+		name: 'detalle_gestion',
+		component: DetalleGestion  
 	},
 	{
 		path: '/',
