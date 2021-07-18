@@ -1,3 +1,5 @@
+import router from '@/router'
+
 import axios from 'axios'
 
 const state = {
@@ -57,6 +59,13 @@ const actions = {
             this.commit('setMenu', response.data)
 
         })
+
+    },
+    logout(){
+
+        localStorage.removeItem('app-colegio')
+
+        router.push('/')
 
     }
 

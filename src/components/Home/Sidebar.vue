@@ -30,7 +30,7 @@
 		</v-list>
 
 		<template v-slot:append>
-			<v-list-item  link>
+			<v-list-item @click="logout()" link>
 				<v-list-item-icon>
 				<v-icon>mdi-logout</v-icon>
 				</v-list-item-icon>
@@ -46,6 +46,7 @@
 <script>
 
 	import Profile from '@/components/Home/Profile.vue'
+import { mapActions } from 'vuex'
 
 	export default {
 		components: {
@@ -63,7 +64,10 @@
 					this.$store.commit('setDrawer', value)
 
 				}
-			}
+			},
+			...mapActions([
+				'logout'
+			])
 		},
 		computed: {
 			menu(){

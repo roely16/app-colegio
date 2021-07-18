@@ -20,9 +20,7 @@
             </v-col>
         </v-row>
 
-        <Modal ref="modal">
-            
-        </Modal>
+        <Modal ref="modal"></Modal>
     </div>
 </template>
 

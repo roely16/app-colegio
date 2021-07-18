@@ -7,6 +7,9 @@ import Permisos from '../views/Permisos'
 import Inscripcion from '../views/Inscripcion.vue'
 import DetalleGestion from '../views/DetalleGestion'
 
+// Perfil del encargado
+import AlumnosEncargado from '../views/AlumnosEncargado'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -39,6 +42,12 @@ const routes = [
 				path: '/home/permisos',
 				name: 'permisos',
 				component: Permisos,
+			},
+			// Perfil del encargado
+			{
+				path: '/home/alumnos_encargado',
+				name: 'alumnos_encargado',
+				component: AlumnosEncargado,
 			}
 		]  
 	}
