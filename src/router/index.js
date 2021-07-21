@@ -9,6 +9,7 @@ import DetalleGestion from '../views/DetalleGestion'
 
 // Perfil del encargado
 import AlumnosEncargado from '../views/AlumnosEncargado'
+import DetalleAlumno from '../views/DetalleAlumno'
 
 Vue.use(VueRouter)
 
@@ -48,6 +49,11 @@ const routes = [
 				path: '/home/alumnos_encargado',
 				name: 'alumnos_encargado',
 				component: AlumnosEncargado,
+			},
+			{
+				path: '/home/alumnos_encargado/:id',
+				name: 'detalle_alumno',
+				component: DetalleAlumno,
 			}
 		]  
 	}

@@ -6,7 +6,9 @@ const namespaced = true
 const state = {
     gestion: null,
     detalle_gestion: [],
-    persona: null
+    persona: null,
+    gestiones: [],
+    headers: []
 }
 
 const mutations = {
@@ -18,6 +20,10 @@ const mutations = {
     },
     setPersona(state, payload){
         state.persona = payload
+    },
+    setTable(state, payload){
+        state.gestiones = payload.items
+        state.headers = payload.headers
     }
 }
 
@@ -37,6 +43,18 @@ const actions = {
         ).then((response) => {
             commit('setDetalleGestion', response.data.detalle_gestion)
             commit('setPersona', response.data.persona)
+        })
+
+    },
+    gestionesAlumno({commit}, payload){
+
+        axios.post(
+            process.env.VUE_APP_API_URL + 'gestiones_alumno',
+            {
+                alumno_id: payload
+            }
+        ).then((response) => {
+            commit('setTable', response.data)
         })
 
     }

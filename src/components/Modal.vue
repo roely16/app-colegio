@@ -29,7 +29,8 @@
         components: {
             'FormRegistro': () => import('./Alumnos/FormRegistro.vue'),
             'FormAlumno': () => import('./Alumnos/FormAlumno.vue'),
-            'FormProceso': () => import('./Alumnos/FormProceso.vue')
+            'FormProceso': () => import('./Alumnos/FormProceso.vue'),
+            'FormGestion': () => import('./Alumnos/NuevaGestion.vue')
         },
         data(){
             return{

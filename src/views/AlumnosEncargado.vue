@@ -4,9 +4,9 @@
             <Header title="Alumnos"></Header>
         </v-container>
 
-        <v-container fluid>
-            <v-row>
-                <v-col cols="12" md="4" v-for="(alumno, key) in alumnos" :key="key">
+        <v-container>
+            <v-row class="ml-3">
+                <v-col cols="12" md="3" v-for="(alumno, key) in alumnos" :key="key">
                     <CardAlumno :student="alumno"></CardAlumno>
                 </v-col>
             </v-row>

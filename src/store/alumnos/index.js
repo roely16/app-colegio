@@ -20,7 +20,8 @@ const state = {
     search: null,
     toggle: 0,
     saving: false,
-    estados_alumno: []
+    estados_alumno: [],
+    info_alumno: {}
 }
 
 const mutations = {
@@ -72,6 +73,9 @@ const mutations = {
     },
     setEstadosAlumno(state, payload){
         state.estados_alumno = payload
+    },
+    setInfoAlumno(state, payload){
+        state.info_alumno = payload
     }
 }
 
@@ -206,6 +210,22 @@ const actions = {
                 dispatch('obtenerAlumnos')
 
             })
+        })
+
+    },
+    infoAlumno({commit}, payload){
+
+        const data = {
+            alumno_id: payload
+        }
+
+        axios.post(
+            process.env.VUE_APP_API_URL + 'detalle_alumno',
+            data
+        ).then((response) => {
+
+            commit('setInfoAlumno', response.data)
+
         })
 
     }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-card class="mx-auto" max-width="400" outlined>
+        <v-card outlined>
             <v-list-item three-line>
                 <v-list-item-content>
                     <div class="text-overline">Nombre:</div>
@@ -25,7 +25,8 @@
             </v-list-item>
             
             <v-card-actions>
-                <v-btn text>
+                
+                <v-btn :to="{name: 'detalle_alumno', params: {id: student.id}}" text>
                     Detalle
                 </v-btn>
             </v-card-actions>
